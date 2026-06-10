@@ -1,0 +1,52 @@
+pipeline {
+    agent any
+
+    stages {
+        
+        stage('Clone repo') {
+            steps {
+                git branch: 'main', credentialsId: 'github-creds', url: 'https://github.com/manojpodugu/temp'
+            }
+        }
+        
+        stage('Modify file') {
+            steps {
+                sh'''
+                    git config user.name "jenkins"
+                    sed -i 's/httpd:latest/nginx:lastest/g' httpd.yml
+                    git diff
+                '''
+                }
+            }
+            
+        stage('Commit Changes') {
+            steps{
+                sh'''
+                git add httpd.yml
+                git diff --cached --quiet || git commit -m "Updated httpd.yml from Jenkins"
+                '''
+            }
+        }
+        stage('Push Changes') {
+            steps {
+           
+            withCredentials([
+            usernamePassword(
+                credentialsId: 'github-creds',
+                usernameVariable: 'GIT_USER',
+                passwordVariable: 'GIT_TOKEN'
+            )
+        ])   {
+            sh '''
+                git push https://${GIT_USER}:${GIT_TOKEN}@github.com/manojpodugu/temp.git main
+            '''
+            }
+        
+        }    
+    }
+        
+        
+        
+        
+    }
+}
