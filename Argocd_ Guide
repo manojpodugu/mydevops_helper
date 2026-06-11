@@ -12,7 +12,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 kubectl get all -n argocd # After installing the ArgoCD, to check what resources it has created.
 kubectl edit svc argocd-server -n argocd # entering into service file with "ClusterIP" type.
 
-#reference when file is opened. Find the below pattern and change "ClusterIP" to "NodePort". After save and exit.
+#reference when file is opened. Find the below pattern and change "ClusterIP" to "NodePort" or "LoadBalancer"(recommended). After save and exit.
 
  #selector:
  #   app.kubernetes.io/name: argocd-server
@@ -35,3 +35,24 @@ kubectl get svc argocd-server -n argocd -o wide #To get k8s port number like 320
 kubectl get secret argocd-initial-admin-secret -n argocd -o yaml    # To get the value of the secret.
 echo "secret value" | base64 --decode         # To decode the secret. Because, secret you see encoded using base64.
 
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
+#After Logged in Argocd UI
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+#STEPS:
+
+#1) Click "+NEW APP" to start.
+#2) UNDER GENERAL >> Application Name : user-defined(custom)
+#3) Project Name : default
+#4) Sync Policy : Automatic and checkbox: both "SELF HEAL" and "PRUNE RESOURCES"
+#5) UNDER SOURCE >> Repository URL= "https://github.com/manojpodugu/k8s_sample.git"
+#6) Revision: HEAD
+#7) only dot(.) [because no folders] in this case. Suppose you are having the manifest files in the folder called "snake". then mention "snake/"
+#8) UNDER DESTINATION >> Cluster URL: https://kubernetes.default.svc
+#9) Namespace: argocd. (namespace where want your pods to be run).
+#10) That's it. HIT "CREATE" button at the top left.
