@@ -3,9 +3,12 @@
 #2) To use kubectl, we need created cluster first.
 
 #Installation steps
+
 kubectl create namespace argocd  #Create the namespace for argoCD
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml  #Install ArgoCD
-#------------ Installation done---------------
+
+#------------ Installation done
+
 kubectl get all -n argocd # After installing the ArgoCD, to check what resources it has created.
 kubectl edit svc argocd-server -n argocd # entering into service file with "ClusterIP" type.
 
@@ -24,8 +27,11 @@ kubectl edit svc argocd-server -n argocd # entering into service file with "Clus
 
 kubectl get nodes -o wide  #To get ip address of worker nodes. EXTERNAL-IP are Public IP addresses.
 kubectl get svc argocd-server -n argocd -o wide #To get k8s port number like 32076.
+
 # Now, you can access "ArgoCD" UI by entering "<public_ip_of worker_node>:k8s port number". eg: "54.174.24.230:31209"
 
+# Now,you need the credentials. For username, you can write 'admin' and the password is stored in the secret called "argocd-initial-admin-secret" in the cluster.
 
-
+kubectl get secret argocd-initial-admin-secret -n argocd -o yaml    # To get the value of the secret.
+echo "secret value" | base64 --decode         # To decode the secret. Because, secret you see encoded using base64.
 
