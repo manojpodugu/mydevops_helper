@@ -39,3 +39,10 @@ eksctl version
 echo "--------------------------------"
 echo "Installation completed successfully."
 
+#cluster creation command
+#eksctl create cluster --name tokyo --region us-east-1 --nodegroup-name japan --nodes 2 --node-type t3.small
+
+#cluster deletion command
+#eksctl delete cluster --name tokyo --region us-east-1
+
+
