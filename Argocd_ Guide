@@ -20,9 +20,12 @@ kubectl edit svc argocd-server -n argocd # entering into service file with "Clus
 
 #--------------------reference ends here--------------------
 
-#Note: Make sure, the port number: 30000 to 32767 are open on eks Worker nodes.
+#Note: Make sure, the port number: 30000 to 32767 are open in security groups of eks Worker nodes.
+
+kubectl get nodes -o wide  #To get ip address of worker nodes. EXTERNAL-IP are Public IP addresses.
+kubectl get svc argocd-server -n argocd -o wide #To get k8s port number like 32076.
+# Now, you can access "ArgoCD" UI by entering "<public_ip_of worker_node>:k8s port number". eg: "54.174.24.230:31209"
 
 
- 
 
 
