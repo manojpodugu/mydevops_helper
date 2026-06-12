@@ -1,0 +1,77 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git credentialsId: 'git-creds',
+                    url: 'https://github.com/manojpodugu/jenkins-java-project-Dockerfile'
+            }
+        }
+
+        stage('Echo - Checkout Completed') {
+            steps {
+                echo 'Repository checkout completed successfully'
+            }
+        }
+        
+        stage('Docker Login') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'dockerhub-creds',
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+                    )
+                ]) {
+                    sh '''
+                        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                    '''
+                }
+            }
+        }
+
+        stage('Echo - Dockerhub Login Completed') {
+            steps {
+                echo 'Docker Hub login successful'
+            }
+        }
+        
+      stage('Build Image') {
+            steps {
+                sh 'docker build -t thor:v1 .'
+            }
+        }
+
+        stage('Echo - Build Completed') {
+            steps {
+                echo 'Docker image thor:v1 built successfully'
+            }
+        }
+        
+        stage('Tag Image') {
+            steps {
+                sh 'docker tag thor:v1 manojpodugu/java_img:v3'
+            }
+        }
+
+        stage('Echo - Tag Completed') {
+            steps {
+                echo 'Image tagged as manojpodugu/java_img:v3'
+            }
+        }
+
+        stage('Push Image') {
+            steps {
+                sh 'docker push manojpodugu/java_img:v3'
+            }
+        }
+
+        stage('Echo - Push Completed') {
+            steps {
+                echo 'Docker image pushed successfully to Docker Hub'
+            }
+        }
+    }
+}
