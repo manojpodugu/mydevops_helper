@@ -8,12 +8,17 @@ folder1/
 #1) In order push the "folder2" and "file1". You have be in the "folder1". [pwd --> /root/folder1 ]
 #2) Use "git init" command to initiate ".git" folder in the "folder1". 
 #3) "ls -a" --> to see ".git" folder.
-#4) Adding remote repo --> "git remote add origin https://github.com/manojpodugu/temp.git"   
+#4) "git branch -M main" --> to force rename "local branch name" to "main".
+#5) "git remote -v" Command to check whether remote repository connected or not. you will see the username along with reponame like "<username/repo.git>", if connected. if not, not response.
+#6) Adding remote repo --> "git remote add origin https://github.com/manojpodugu/temp.git"   
 
 ----------------IF CONDITION----------------------------------------------------------------------------------------------------------
 #CASE1:
 #1) let us suppose, Github repo {manojpodugu/temp} already have pre-existing files.
-#2)
+#2) Use "git pull origin main --allow-unrelated-histories" --> Fetch and merge the existing GitHub repository. 
+
+#EXPLANATION:
+Because git cannot push the local files and folders to github with
 
 
 
