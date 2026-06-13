@@ -23,7 +23,8 @@ folder1/
 
 ---
 #3) "git add ." --> Add the files and folders to staging area. {"git status" --> to see staged changes}.
-#4) "git commit -m "Added local project" --> tio commit the staged changes to local ".git/" folder. {git log --> to see commit history}.
+#4) "git commit -m "Added local project" --> to commit the staged changes to local ".git/" folder. {git log --> to see commit history}.
+#5) "git push -u origin main" --> to push all this changes to remote github repo.
 
 
 
