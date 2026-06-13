@@ -1,0 +1,5 @@
+# SAMPLE Dockerfile
+FROM nginx:lastest
+RUN echo "Welcome to Nginx" > /usr/share/nginx/html/index.html
+EXPOSE 80
+---------------------------------------------------------------------------------------------------------------------------------------------------
