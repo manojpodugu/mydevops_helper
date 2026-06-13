@@ -1,9 +1,20 @@
-Consider the following folder structure in Windows. We will push "folder2" along with "file1" to GITHUB REPO using GIT_BASH.
+# Consider the following folder structure in Windows. We will push "folder2" along with "file1" to GITHUB REPO using GIT_BASH.
 ------------------------------------------------------------------------------------------------------------------------------------
 folder1/
 ├── folder2/
 └── file1.txt
 --------------------------------------------------------------------------------------------------------------------------------------
+# STEPS :
+#1) In order push the "folder2" and "file1". You have be in the "folder1". [pwd --> /root/folder1 ]
+#2) Use "git init" command to initiate ".git" folder in the "folder1". 
+#3) "ls -a" --> to see ".git" folder.
+#4) Adding remote repo --> "git remote add origin https://github.com/manojpodugu/temp.git"   
+
+----------------IF CONDITION----------------------------------------------------------------------------------------------------------
+#CASE1:
+#1) let us suppose, Github repo {manojpodugu/temp} already have pre-existing files.
+#2)
+
 
 
 
