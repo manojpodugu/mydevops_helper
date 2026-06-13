@@ -30,8 +30,18 @@ IF CONDITION:
 -----------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------
 
-#7) "git add ." --> Add the files and folders to staging area. {"git status" --> to see staged changes}.
-#8) "git commit -m "Added local project" --> to commit the staged changes to local ".git/" folder. {git log --> to see commit history}.
+#7) "git add ." --> Add the files and folders to staging area. {"git status" --> to see staged changes that are ready for the commit}.
+#8) "git commit -m "Added local project" --> to commit the staged changes to local ".git/" folder. {"git log" --> to see commit history}.
 #9) "git push -u origin main" --> to push all this changes to remote github repo. In this case {https://github.com/manojpodugu/temp.git}.
+
+
+
+# NOTE: IMP Commands
+#1) "git rm --cached -r ."   --> to remove all the staged changes.
+#2) "git status"             --> to see staged changes that are ready for the commit.
+#3) "git update-ref -d HEAD" --> To uncommit all the commited changes and send these changes back to "staging area".
+#4) "git log"                --> to see commit history.
+#5) "git remote -v"          --> to check whether remote repository connected to local or not.
+
 
 
