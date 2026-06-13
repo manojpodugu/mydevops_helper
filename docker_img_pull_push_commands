@@ -5,11 +5,11 @@ EXPOSE 80
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 IMPORTANT DOCKER COMMANDS
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-"docker build -t custom_img_name ." --> 
-"" --> 
-"" --> 
-"" --> 
-"" --> 
+"docker build -t custom_img_name ." --> builds the image with Dockerfile present in the current directory.
+"docker login -u manojpodugu" --> Dockerhub login using username. After this commands executes, it seek for password. Give the Dockerhub password. (invisible--just type and enter).
+"docker tag custom_img_name manojpodugu/custom_repo_name:tag" --> tags the image created with previous commands.
+"docker push manojpodugu/custom_repo_name:tag" --> pushes the image to Dockerhub.
+"docker rmi $(docker images -aq)" --> deletes all the local images.
 "" --> 
 "" --> 
 "" --> 
