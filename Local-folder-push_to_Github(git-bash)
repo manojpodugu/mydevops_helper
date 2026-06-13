@@ -9,7 +9,7 @@ folder1/
 #2) Use "git init" command to initiate ".git" folder in the "folder1". 
 #3) "ls -a" --> to see ".git" folder.
 #4) "git branch -M main" --> to force rename "local branch name" to "main".
-#5) "git remote -v" Command to check whether remote repository connected or not. you will see the username along with reponame like "<username/repo.git>", if connected. if not, not response.
+#5) "git remote -v" Command to check whether remote repository connected or not. you will see the username along with reponame like "<username/repo.git>", if connected. If not, not response.
 #6) Adding remote repo --> "git remote add origin https://github.com/manojpodugu/temp.git"   
 
 ----------------IF CONDITION----------------------------------------------------------------------------------------------------------
@@ -18,7 +18,13 @@ folder1/
 #2) Use "git pull origin main --allow-unrelated-histories" --> Fetch and merge the existing GitHub repository. 
 
 #EXPLANATION:
-Because git cannot push the local files and folders to github with
+#A) Normally, Git expects both repositories/branches to share a common commit history (a common ancestor). If they don't, Git throws an error like "fatal: refusing to merge unrelated histories".
+#B) Use of "--allow-unrelated-histories" in the above command tells git --> "I know these histories are completely separate. Merge them anyway."
+
+---
+#3) "git add ." --> Add the files and folders to staging area. {"git status" --> to see staged changes}.
+#4) "git commit -m "Added local project" --> tio commit the staged changes to local ".git/" folder. {git log --> to see commit history}.
+
 
 
 
