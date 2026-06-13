@@ -1,3 +1,22 @@
+# NOTE:
+#1) Installing Tools from Jenkins GUI
+    Go to:
+    Manage Jenkins → Global Tool Configuration
+    Add Maven:
+    Scroll to Maven
+    Click Add Maven
+    Name: aaya-sher (or user-defined name {Custom})     # This is the name used to call the MAVEN during pipeline execution.
+    Check: Install automatically
+    Choose version: e.g., 3.9.9 or any lastest required version.
+    Jenkins will install this version for you during the build.
+
+#2) After the Sucessful pipeline execution, you will find the artifact file in the following path of jenkins server:
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+# THE PIPELINE
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
 pipeline {
     agent any
     
@@ -19,47 +38,7 @@ pipeline {
                sh 'mvn clean package'
             }
         }
-        
-        stage('Docker Login') {
-            steps {
-                withCredentials([
-                    usernamePassword(
-                        credentialsId: 'dockerhub-creds',
-                        usernameVariable: 'DOCKER_USER',
-                        passwordVariable: 'DOCKER_PASS'
-                    )
-                ]) {
-                    sh '''
-                        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                    '''
-                }
-            }
-        }
-
-
-        
-      stage('Build Image') {
-            steps {
-                sh 'docker build -t thor:v2 .'
-            }
-        }
-
-        
-        stage('Tag Image') {
-            steps {
-                sh 'docker tag thor:v1 manojpodugu/java_img:v4'
-            }
-        }
-
-
-        stage('Push Image') {
-            steps {
-                sh 'docker push manojpodugu/java_img:v4'
-            }
-        }
-
-
-        
+             
         
     }
 }
