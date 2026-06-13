@@ -12,6 +12,8 @@
 
 #2) After the Sucessful pipeline execution, you will find the artifact file in the following path of jenkins server:
 
+ls /var/lib/jenkins/workspace/<user-defined build_name>/target/
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 # THE PIPELINE
