@@ -5,15 +5,15 @@ EXPOSE 80
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 IMPORTANT DOCKER COMMANDS
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-"docker build -t custom_img_name ." --> builds the image with Dockerfile present in the current directory.
-"docker login -u manojpodugu" --> Dockerhub login using username. After this commands executes, it seek for password. Give the Dockerhub password. (invisible--just type and enter).
-"docker tag custom_img_name manojpodugu/custom_repo_name:tag" --> tags the image created with previous commands.
-"docker push manojpodugu/custom_repo_name:tag" --> pushes the image to Dockerhub.
-"docker rmi $(docker images -aq)" --> deletes all the local images.
-"" --> 
-"" --> 
-"" --> 
-"" --> 
-"" --> 
-"" --> 
-"" --> 
+"docker build -t custom_img_name ."                            --> builds the image with Dockerfile present in the current directory.
+"docker login -u manojpodugu"                                  --> Dockerhub login using username. After this commands executes, it seek for password. Give the Dockerhub password. (invisible--just type and enter).
+"docker tag custom_img_name manojpodugu/custom_repo_name:tag"  --> tags the image created with previous commands.
+"docker push manojpodugu/custom_repo_name:tag"                 --> pushes the image to Dockerhub.
+"docker rmi $(docker images -aq)"                              --> deletes all the local images.
+"docker pull manojpodugu/custom_repo_name:tag"                 --> Pulling the same image from the dockerhub.
+"docker run -d --name custom_container_name -p 8080:80 manojpodugu/custom_repo_name:tag" --> Running container from the image created.
+"docker exec -it cont1 /bin/bash"                              --> entering into the container created.
+"docker stop cont1"                                            --> Stops the container. 
+"docker start cont1"                                           --> Starts the container.
+"docker rm $(docker ps -aq)"                                   --> Delete all the containers.
+"exit"                                                         --> exits from the container by keeping it running in background.
