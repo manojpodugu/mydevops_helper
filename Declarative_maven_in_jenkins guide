@@ -1,0 +1,65 @@
+pipeline {
+    agent any
+    
+    tools {
+        maven 'aaya-sher'
+    }
+       
+  stages {
+    
+        stage('Clone repo') {
+            steps {
+              git branch: 'main', url: 'https://github.com/manojpodugu/temp'
+            }
+        }
+        
+        
+        stage('artifact') {
+            steps {
+               sh 'mvn clean package'
+            }
+        }
+        
+        stage('Docker Login') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'dockerhub-creds',
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+                    )
+                ]) {
+                    sh '''
+                        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                    '''
+                }
+            }
+        }
+
+
+        
+      stage('Build Image') {
+            steps {
+                sh 'docker build -t thor:v2 .'
+            }
+        }
+
+        
+        stage('Tag Image') {
+            steps {
+                sh 'docker tag thor:v1 manojpodugu/java_img:v4'
+            }
+        }
+
+
+        stage('Push Image') {
+            steps {
+                sh 'docker push manojpodugu/java_img:v4'
+            }
+        }
+
+
+        
+        
+    }
+}
