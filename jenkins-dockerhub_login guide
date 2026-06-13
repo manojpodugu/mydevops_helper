@@ -1,3 +1,18 @@
+# NOTE: 
+#1) Dockerhub credentials should be configured in jenkins, to allow jenkins to interact with Dockerhub to push image.
+#2) Add "jenkins" user to "docker" group--> So that, Jenkins can able to run docker commands.
+usermod -aG docker jenkins
+groups jenkins     # shows jenkins groups
+
+#3) After step 2, restart docker and jenkins, to sync the previous commands.
+systemctl restart jenkins
+systemctl restart docker
+systemctl daemon-reload
+
+
+---------------------------------------------------------------------------------------------------------
+# THE PIPELINE
+---------------------------------------------------------------------------------------------------------
 pipeline {
     agent any
 
@@ -5,7 +20,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git credentialsId: 'git-creds',
+               git branch: 'main',
                     url: 'https://github.com/manojpodugu/jenkins-java-project-Dockerfile'
             }
         }
