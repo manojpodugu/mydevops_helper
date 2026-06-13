@@ -1,3 +1,14 @@
+Consider the following folder structure in Windows. We will push "folder2" along with "file1" to GITHUB REPO using GIT_BASH.
+------------------------------------------------------------------------------------------------------------------------------------
+folder1/
+├── folder2/
+└── file1.txt
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 git remote-v
 
 No (no Output) NO
@@ -6,7 +17,7 @@ ed disfolder
 
 →file
 
-→
+
 
 git git add. 10
 
