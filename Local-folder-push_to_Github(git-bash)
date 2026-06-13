@@ -11,49 +11,27 @@ folder1/
 #4) "git branch -M main" --> to force rename "local branch name" to "main".
 #5) "git remote -v" Command to check whether remote repository connected or not. you will see the username along with reponame like "<username/repo.git>", if connected. If not, not response.
 #6) Adding remote repo --> "git remote add origin https://github.com/manojpodugu/temp.git"   
+-----------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------
+IF CONDITION:
+--------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
+# CASE1:  Github repo {https://github.com/manojpodugu/temp.git} already have pre-existing files.
+========
+#A) Use "git pull origin main --allow-unrelated-histories" --> Fetch and merge the existing GitHub repository. 
 
-----------------IF CONDITION----------------------------------------------------------------------------------------------------------
-#CASE1:
-#1) let us suppose, Github repo {manojpodugu/temp.git} already have pre-existing files.
-#2) Use "git pull origin main --allow-unrelated-histories" --> Fetch and merge the existing GitHub repository. 
+# EXPLANATION:
+#i) Normally, Git expects both repositories/branches to share a common commit history (a common ancestor). If they don't, Git throws an error like "fatal: refusing to merge unrelated histories".
+#ii) Use of "--allow-unrelated-histories" in the above command tells git --> "I know these histories are completely separate. Merge them anyway."
+-----------------------------------------------------------------------------------------------------------------------
+#CASE2: what if, the github repo {https://github.com/manojpodugu/temp.git} is a newly created one.
+=======
+#i) then, just follow the given steps from 1 to 9. {vomit #A}.
+-----------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 
-#EXPLANATION:
-#A) Normally, Git expects both repositories/branches to share a common commit history (a common ancestor). If they don't, Git throws an error like "fatal: refusing to merge unrelated histories".
-#B) Use of "--allow-unrelated-histories" in the above command tells git --> "I know these histories are completely separate. Merge them anyway."
-
----
-#3) "git add ." --> Add the files and folders to staging area. {"git status" --> to see staged changes}.
-#4) "git commit -m "Added local project" --> to commit the staged changes to local ".git/" folder. {git log --> to see commit history}.
-#5) "git push -u origin main" --> to push all this changes to remote github repo. In this case {https://github.com/manojpodugu/temp.git}.
-
-
-
-
-
-
-
-git remote-v
-
-No (no Output) NO
-
-ed disfolder
-
-→file
+#7) "git add ." --> Add the files and folders to staging area. {"git status" --> to see staged changes}.
+#8) "git commit -m "Added local project" --> to commit the staged changes to local ".git/" folder. {git log --> to see commit history}.
+#9) "git push -u origin main" --> to push all this changes to remote github repo. In this case {https://github.com/manojpodugu/temp.git}.
 
 
-
-git git add. 10
-
-in the pwd to sta git in't to push folder-1. staging avee
-
-→ To add all the git status to see all the files staged changes
-
-giturm-cached To remove all staged changes
-
-git commit -m "meg" To Commit the staged changed
-
-git, update-of-d HEAD→ To un commit the changes &
-
-Send them back to "staged Changes"
-
-NOTE:- Git Cannot push the to cal files repo. To do. So, to an
