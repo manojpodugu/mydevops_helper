@@ -14,7 +14,7 @@ folder1/
 
 ----------------IF CONDITION----------------------------------------------------------------------------------------------------------
 #CASE1:
-#1) let us suppose, Github repo {manojpodugu/temp} already have pre-existing files.
+#1) let us suppose, Github repo {manojpodugu/temp.git} already have pre-existing files.
 #2) Use "git pull origin main --allow-unrelated-histories" --> Fetch and merge the existing GitHub repository. 
 
 #EXPLANATION:
@@ -24,7 +24,7 @@ folder1/
 ---
 #3) "git add ." --> Add the files and folders to staging area. {"git status" --> to see staged changes}.
 #4) "git commit -m "Added local project" --> to commit the staged changes to local ".git/" folder. {git log --> to see commit history}.
-#5) "git push -u origin main" --> to push all this changes to remote github repo.
+#5) "git push -u origin main" --> to push all this changes to remote github repo. In this case {https://github.com/manojpodugu/temp.git}.
 
 
 
